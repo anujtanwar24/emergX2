@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: #ededed;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        h1 {
+            padding: 40px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        
+        li a {
+            text-decoration: none;
+            color: #2d2f31;
+        }
+        
+        .drop {
+            width: 300px;
+            margin: 40px auto;
+            background-color: #ededed;
+        }
+        
+        span {
+            padding: 30px;
+            background: #2d2f31;
+            color: white;
+            font-size: 1.2em;
+            font-variant: small-caps;
+            cursor: pointer;
+            display: block;
+        }
+        
+        .font {
+            color: cadetblue;
+        }
+        
+        span::after {
+            float: right;
+            right: 10%;
+            content: "+";
+            color: cadetblue;
+        }
+        
+        .slide {
+            clear: both;
+            width: 100%;
+            height: 0px;
+            overflow: hidden;
+            text-align: center;
+            transition: height .4s ease;
+        }
+        
+        .slide a:hover {
+            color: cornflowerblue;
+        }
+        
+        .slide li {
+            padding: 30px;
+        }
+        
+        #touch {
+            position: absolute;
+            opacity: 0;
+            height: 0px;
+        }
+        
+        #touch:checked+.slide {
+            height: 700px;
+        }
+    </style>
+
+    <div class="mainheader">
+        <div class="logo">
+            <img src="photos/Emerg-3.png">
+        </div>
+
+        <nav>
+            <a href="index.html">home</a>
+
+            <a href="#">about</a>
+            <a href="" target="_blank">contact</a>
+        </nav>
+
+        <div class="menubtn">
+            <button>emergency</button>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="font">specify your emergency</h1>
+
+        <nav class="drop">
+
+            <label for="touch"><span>type</span></label>
+            <input type="checkbox" id="touch">
+
+            <ul class="slide">
+                <li><a href="result.html">heart attack</a></li>
+                <li><a href="result.html">accident</a></li>
+                <li><a href="result.html">seizure</a></li>
+                <li><a href="result.html">burns</a></li>
+                <li><a href="result.html">heat strokes</a></li>
+                <li><a href="result.html">fractures</a></li>
+                <li><a href="result.html">electrocutions</a></li>
+                <li><a href="result.html">bites/stings</a></li>
+                <li><a href="result.html">chocking</a></li>
+            </ul>
+
+    </div>
+
+
+</body>
+
+</html>

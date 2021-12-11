@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background: linear-gradient( to right, #ffffff 0%, #ffffff 50%, #95D1CC 50%, #95D1CC 100%);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    /* Full-width input fields */
+    
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+    /* Add a background color when the inputs get focus */
+    
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+    /* Set a style for all buttons */
+    
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    
+    button:hover {
+        opacity: 1;
+    }
+    /* Extra styles for the cancel button */
+    
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+    /* Float cancel and signup buttons and add an equal width */
+    
+    .cancelbtn,
+    /* .signupbtn {
+         
+         margin-right: 30px; 
+         width: 50%; 
+    } */
+    /* Add padding to container elements */
+    
+    .container {
+        padding: 16px;
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+    /* Style the horizontal ruler */
+    
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+    /* The Close Button (x) */
+    
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+    /* Clear floats */
+    
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    /* Change styles for cancel button and signup button on extra small screens */
+    
+    @media screen and (max-width: 300px) {
+        .cancelbtn,
+        .signupbtn {
+            width: 100%;
+        }
+    }
+    
+    .menubtn {
+        margin-right: 60px;
+    }
+    
+    .btn {
+        border-radius: 100px;
+        font-family: Georgia;
+        color: #ffffff;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+        margin-left: 5%;
+    }
+    
+    .btn img {
+        border-radius: 100px;
+    }
+    
+    .btn:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3458d9);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3458d9);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3458d9);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3458d9);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3458d9);
+        text-decoration: none;
+    }
+    
+    .mainheader .logo img {
+        width: 350px;
+        height: 70px;
+        padding-left: 60px;
+    }
+    
+    .mainheader nav {
+        width: 450px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .mainheader nav a {
+        text-decoration: none;
+        color: cadetblue;
+        text-transform: uppercase;
+    }
+    
+    .mainheader nav a:hover {
+        transform: scale(1.1);
+        transition: .4s;
+        color: cornflowerblue;
+    }
+    
+    .mainheader {
+        width: 100%;
+        margin-bottom: 5%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .btn-1 {
+        background: #0ee80e;
+        background-image: -webkit-linear-gradient(top, #0ee80e, #06630c);
+        background-image: -moz-linear-gradient(top, #0ee80e, #06630c);
+        background-image: -ms-linear-gradient(top, #0ee80e, #06630c);
+        background-image: -o-linear-gradient(top, #0ee80e, #06630c);
+        background-image: linear-gradient(to bottom, #0ee80e, #06630c);
+        -webkit-border-radius: 4;
+        -moz-border-radius: 4;
+        border-radius: 4px;
+        font-family: Courier New;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+    
+    .btn-1:hover {
+        background: #abc71c;
+        background-image: -webkit-linear-gradient(top, #abc71c, #6e6c0b);
+        background-image: -moz-linear-gradient(top, #abc71c, #6e6c0b);
+        background-image: -ms-linear-gradient(top, #abc71c, #6e6c0b);
+        background-image: -o-linear-gradient(top, #abc71c, #6e6c0b);
+        background-image: linear-gradient(to bottom, #abc71c, #6e6c0b);
+        text-decoration: none;
+    }
+    /* #otherAnswer {
+        display: none;
+    }
+
+    #other:checked~#otherAnswer {
+        display: flex;
+    } */
+    
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+
+    <!-- <h2>Modal Signup Form</h2> -->
+
+
+    <div class="mainheader">
+        <div class="logo">
+            <img src="photos/Emerg-3.png">
+        </div>
+
+        <nav>
+            <a href="index.html">home</a>
+
+            <a href="#">about</a>
+            <a href="" target="_blank">contact</a>
+        </nav>
+
+        <div class="menubtn">
+            <a href="emergency.html"><button>emergency</button></a>
+        </div>
+    </div>
+    <form class="modal-content" action="/action_page.php">
+
+
+        <div class="container">
+            <h1>Sign Up As Patient</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <table>
+                <tr>
+
+                    <td><label for="fname"><b>First name</b></label></td>
+                    <td> <input type="text" placeholder="Enter First Name" name="fname" required></td>
+
+                    <td> <label for="mname"><b> Mid name</b></label></td>
+                    <td> <input type="text" placeholder="Enter Mid Name" name="mname" required></td>
+
+                    <td> <label for="lname"><b>Last name</b></label></td>
+                    <td> <input type="text" placeholder="Enter Last Name" name="lname" required></td>
+
+                </tr>
+                <tr>
+
+                    <td> <label for="hnumber"><b>Home Phone Number</b></label></td>
+                    <td> <input type="tel" placeholder="Home Phone Number" name="hnumber" required></td>
+
+                    <td> <label for="anumber"><b>Alternate Phone Number</b></label></td>
+                    <td> <input type="tel" placeholder="Alternate Phone Number" name="anumber" required></td>
+
+                </tr>
+                <tr>
+
+                    <td> <label for="email"><b>Email</b></label></td>
+                    <td> <input type="text" placeholder="Enter Email" name="email" required></td>
+                </tr>
+                <tr>
+
+                    <td> <label for="address"><b>Address</b></label></td>
+                    <td> <input type="text" placeholder="Enter Address" name="address" required></td>
+
+                    <td> <label for="age"><b>Age</b></label></td>
+                    <td> <input type="number" placeholder="Enter Age" name="age" required></td>
+
+
+                    <td> <label for="blood"><b>Blood Group</b></label></td>
+                    <td> <input type="text" placeholder="Enter Blood Group" name="blood" required></td>
+                </tr>
+                <tr>
+
+                    <td> <label for="city"><b>City</b></label></td>
+                    <td> <input type="text" placeholder="Enter City" name="city" required></td>
+                    <td> <label for="state"><b>State</b></label></td>
+                    <td> <input type="text" placeholder="Enter State" name="state" required></td>
+                    <td> <label for="zip"><b>Zip</b></label></td>
+                    <td> <input type="text" placeholder="Enter Zip" name="zip" required></td>
+
+                </tr>
+                <tr>
+
+                    <td> <label for="dob"><b>Date Of Birth</b></label></td>
+                    <td> <input type="date" placeholder="Enter Date Of Birth" name="dob" required></td>
+                    <td>
+                        <legend><b>Choose your gender</b></legend>
+                        <td> <label for="male">Male</label></td>
+                        <td> <input type="radio" name="gender" id="male" value="male" checked></td>
+                        <td><label for="female">Female</label></td>
+                        <td> <input type="radio" name="gender" id="female" value="female">
+                        </td>
+
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <legend><b>Maritial Status</b></legend>
+                        <td> <label for="married">Married</label></td>
+                        <td> <input type="radio" name="satus" id="married" value="married" checked></td>
+                        <td><label for="single">Single </label></td>
+                        <td> <input type="radio" name="status" id="single" value="single">
+                            <td><label for="divorced">Divorced</label></td>
+                            <td> <input type="radio" name="status" id="divorced" value="divorced">
+                            </td>
+                </tr>
+
+
+                <tr>
+                    <div>
+                        <td><b>Any medical problem?</b></td>
+                        <td> No<input type="radio" id="no" name="answer" checked="checked" value="no" /></td>
+
+
+
+
+                        <td> Yes<input type="radio" id="other" name="answer" value="other" /> </td>
+
+
+                        <td> <input type="text" placeholder="If yes then type here." id="otherAnswer" name="otherAnswer" /></td>
+                    </div>
+                </tr>
+                <tr>
+
+                    <td> <label for="enumber"><b>Emergency Contact-1</b></label></td>
+                    <td> <input type="tel" placeholder="Emergency Contact" name="enumber" required></td>
+
+                    <td> <label for="eenumber"><b>Emergency Contact-2</b></label></td>
+                    <td> <input type="tel" placeholder="Emergency Contact" name="eenumber" required></td>
+
+                </tr>
+                <tr>
+                    <td> <label>
+                                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">
+                                Remember me
+                            </label>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Clear Out</button>
+                    </td>
+                </tr>
+                </div>
+                </tr>
+            </table>
+
+
+            <button class="btn-1" onclick="document.location='sign.html'" style="width:auto;">Next</button>
+
+        </div>
+    </form>
+    </div>
+
+    <script>
+        var modal = document.getElementById('id01');
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        $("input[type='radio']").change(function() {
+
+            if ($(this).val() == "other") {
+                $("#otherAnswer").show();
+            } else {
+                $("#otherAnswer").hide();
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
